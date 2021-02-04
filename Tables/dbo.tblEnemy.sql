@@ -3,10 +3,10 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[tblEnemy] (
-		[EnemyId]         [int] NOT NULL,
-		[EnemyName]       [nchar](30) COLLATE Latin1_General_CI_AS NOT NULL,
-		[Description]     [nchar](100) COLLATE Latin1_General_CI_AS NULL,
-		CONSTRAINT [PK_tblEnemyId]
+		[EnemyId]         [int] IDENTITY(1, 1) NOT NULL,
+		[EnemyName]       [nvarchar](50) COLLATE Latin1_General_CI_AS NULL,
+		[Description]     [nvarchar](100) COLLATE Latin1_General_CI_AS NULL,
+		CONSTRAINT [PK__tblEnemy__911A0BF2BB9C0581]
 		PRIMARY KEY
 		CLUSTERED
 		([EnemyId])

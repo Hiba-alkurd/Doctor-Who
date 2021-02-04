@@ -3,16 +3,16 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[tblEpisode] (
-		[EpisodeId]         [int] NOT NULL,
+		[EpisodeId]         [int] IDENTITY(1, 1) NOT NULL,
 		[SeriesNumber]      [int] NULL,
-		[EpisodeNumber]     [int] NOT NULL,
-		[EpisodeType]       [nchar](20) COLLATE Latin1_General_CI_AS NULL,
-		[Title]             [nchar](50) COLLATE Latin1_General_CI_AS NULL,
+		[EpisodeNumber]     [int] NULL,
+		[EpisodeType]       [nvarchar](50) COLLATE Latin1_General_CI_AS NULL,
+		[Title]             [nvarchar](50) COLLATE Latin1_General_CI_AS NULL,
 		[EpisodeDate]       [date] NULL,
-		[AuthorId]          [int] NOT NULL,
-		[DoctorId]          [int] NOT NULL,
-		[Notes]             [nchar](100) COLLATE Latin1_General_CI_AS NULL,
-		CONSTRAINT [PK_tblEpisode]
+		[AuthorId]          [int] NULL,
+		[DoctorId]          [int] NULL,
+		[Notes]             [nvarchar](100) COLLATE Latin1_General_CI_AS NULL,
+		CONSTRAINT [PK__tblEpiso__AC6609F559E53561]
 		PRIMARY KEY
 		CLUSTERED
 		([EpisodeId])
@@ -23,6 +23,8 @@ ALTER TABLE [dbo].[tblEpisode]
 	WITH CHECK
 	ADD CONSTRAINT [FK_tblEpisode_tblAuthor]
 	FOREIGN KEY ([AuthorId]) REFERENCES [dbo].[tblAuthor] ([AuthorId])
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
 ALTER TABLE [dbo].[tblEpisode]
 	CHECK CONSTRAINT [FK_tblEpisode_tblAuthor]
 
@@ -31,6 +33,8 @@ ALTER TABLE [dbo].[tblEpisode]
 	WITH CHECK
 	ADD CONSTRAINT [FK_tblEpisode_tblDoctor]
 	FOREIGN KEY ([DoctorId]) REFERENCES [dbo].[tblDoctor] ([DoctorId])
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
 ALTER TABLE [dbo].[tblEpisode]
 	CHECK CONSTRAINT [FK_tblEpisode_tblDoctor]
 

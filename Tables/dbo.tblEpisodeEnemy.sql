@@ -3,10 +3,10 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING OFF
 GO
 CREATE TABLE [dbo].[tblEpisodeEnemy] (
-		[EpisodeEnemyId]     [int] NOT NULL,
-		[EpisodeId]          [int] NOT NULL,
-		[EnemyId]            [int] NOT NULL,
-		CONSTRAINT [PK_tblEpisodeEnemy]
+		[EpisodeEnemyId]     [int] IDENTITY(1, 1) NOT NULL,
+		[EpisodeID]          [int] NULL,
+		[EnemyId]            [int] NULL,
+		CONSTRAINT [PK__tblEpiso__6DF24E302F8DED5D]
 		PRIMARY KEY
 		CLUSTERED
 		([EpisodeEnemyId])
@@ -16,7 +16,7 @@ GO
 ALTER TABLE [dbo].[tblEpisodeEnemy]
 	WITH CHECK
 	ADD CONSTRAINT [FK_tblEpisodeEnemy_tblEpisode]
-	FOREIGN KEY ([EpisodeId]) REFERENCES [dbo].[tblEpisode] ([EpisodeId])
+	FOREIGN KEY ([EpisodeID]) REFERENCES [dbo].[tblEpisode] ([EpisodeId])
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 ALTER TABLE [dbo].[tblEpisodeEnemy]

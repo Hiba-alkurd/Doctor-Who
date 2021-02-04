@@ -3,9 +3,9 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[tblAuthor] (
-		[AuthorId]       [int] NOT NULL,
-		[AuthorName]     [nchar](30) COLLATE Latin1_General_CI_AS NOT NULL,
-		CONSTRAINT [PK_tblAuthor]
+		[AuthorId]       [int] IDENTITY(1, 1) NOT NULL,
+		[AuthorName]     [nvarchar](50) COLLATE Latin1_General_CI_AS NULL,
+		CONSTRAINT [PK__tblAutho__70DAFC34C4B2CEB9]
 		PRIMARY KEY
 		CLUSTERED
 		([AuthorId])
