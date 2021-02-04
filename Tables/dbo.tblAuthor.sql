@@ -1,0 +1,16 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tblAuthor] (
+		[AuthorId]       [int] NOT NULL,
+		[AuthorName]     [nchar](30) COLLATE Latin1_General_CI_AS NOT NULL,
+		CONSTRAINT [PK_tblAuthor]
+		PRIMARY KEY
+		CLUSTERED
+		([AuthorId])
+	ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[tblAuthor] SET (LOCK_ESCALATION = TABLE)
+GO
